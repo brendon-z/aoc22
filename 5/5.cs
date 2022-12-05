@@ -16,9 +16,7 @@ public static class five
 
         Console.WriteLine("Multiple at once? If so, type \"y\" please ");
         String input = Console.ReadLine();
-        Boolean multiple = false;
-
-        if (input.Equals("y") || input.Equals("Y")) multiple = true;
+        Boolean multiple = input.Equals("y") || input.Equals("Y");
 
         String[] instructions = File.ReadAllLines("input.txt");
         moveAround(instructions, multiple);
