@@ -1,0 +1,9 @@
+c,z,n,b,m,w,q,v
+h,z,r,w,c,b
+f,q,r,j
+z,s,w,h,f,n,m,t
+g,f,w,l,n,q,p
+l,p,w
+v,b,d,r,g,c,q,j
+z,q,n,b,w
+h,l,f,c,g,t,j

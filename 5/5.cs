@@ -14,8 +14,14 @@ public static class five
         stackNumber = Convert.ToInt32(Console.ReadLine());
         createStacks();
 
+        Console.WriteLine("Multiple at once? If so, type \"y\" please ");
+        String input = Console.ReadLine();
+        Boolean multiple = false;
+
+        if (input.Equals("y") || input.Equals("Y")) multiple = true;
+
         String[] instructions = File.ReadAllLines("input.txt");
-        moveAround(instructions);
+        moveAround(instructions, multiple);
         Console.WriteLine(getMessage());
     }
 
@@ -36,15 +42,29 @@ public static class five
         }
     }
 
-    public static void moveAround(String[] instructions) {
+    public static void moveAround(String[] instructions, Boolean multiple) {
         for (int i = 0; i < instructions.Count(); i++)
         {
             String[] numbers = Regex.Split(instructions[i], @"\D+");
 
-            for (int j = 0; j < Convert.ToInt32(numbers[1]); j++)
+            if (multiple)
             {
-                String crate = stacks[Convert.ToInt32(numbers[2]) - 1].Pop();
-                stacks[Convert.ToInt32(numbers[3]) - 1].Push(crate);
+                Stack<String> crates = new Stack<String>();
+                for (int j = 0; j < Convert.ToInt32(numbers[1]); j++)
+                {
+                    crates.Push(stacks[Convert.ToInt32(numbers[2]) - 1].Pop());
+                }
+
+                for (int j = 0; j < Convert.ToInt32(numbers[1]); j++)
+                {
+                    stacks[Convert.ToInt32(numbers[3]) - 1].Push(crates.Pop());
+                }
+            } else {
+                for (int j = 0; j < Convert.ToInt32(numbers[1]); j++)
+                {
+                    String crate = stacks[Convert.ToInt32(numbers[2]) - 1].Pop();
+                    stacks[Convert.ToInt32(numbers[3]) - 1].Push(crate);
+                }
             }
         }
     }
