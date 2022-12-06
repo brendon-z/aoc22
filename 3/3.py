@@ -22,7 +22,3 @@ for i in range(0, len(lines), 3):
     badge = ''.join(set.intersection(*map(set, {line1, line2, line3})))
     badgeTotal += dict1.get(badge)
 print(badgeTotal)
-
-
-
-
