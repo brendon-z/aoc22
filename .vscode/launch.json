@@ -1,0 +1,35 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch four",
+            "request": "launch",
+            "mainClass": "four",
+            "projectName": "aoc22_e69927a5"
+        },
+        {
+            "type": "java",
+            "name": "Launch eight",
+            "request": "launch",
+            "mainClass": "eight",
+            "projectName": "aoc22_e69927a5"
+        },
+        {
+            "name": ".NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/5/bin/Debug/net7.0/5.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/5",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
+        }
+    ]
+}
