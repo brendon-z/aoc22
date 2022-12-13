@@ -3,7 +3,7 @@ const fs = require("fs")
 const data = fs.readFileSync("input.txt", "utf-8")
 let lines = data.split(/\r?\n/)
 let sum = 0;
-let packets = [[2],[6]]
+let packets = [[[2]],[[6]]]
 
 for (let i = 0; i < lines.length; i++) {
     if (i % 3 !== 0) {
@@ -11,8 +11,8 @@ for (let i = 0; i < lines.length; i++) {
     }
     let line1 = lines[i]
     let line2 = lines[i + 1]
-    packets.push(line1)
-    packets.push(line2)
+    packets.push(JSON.parse(line1))
+    packets.push(JSON.parse(line2))
     console.log(lines[i])
     console.log(lines[i + 1])
 
@@ -26,6 +26,11 @@ for (let i = 0; i < lines.length; i++) {
 }
 
 console.log(sum)
+packets.sort((a, b) => {
+    if (isValid(a, b)) return -1
+    else return 1
+})
+console.log((packets.findIndex(x => JSON.stringify(x) === "[[2]]") + 1) * (packets.findIndex(x => JSON.stringify(x) === "[[6]]") + 1))
 
 function isValid(json1, json2) {
     let json1Array
